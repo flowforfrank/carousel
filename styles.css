@@ -1,0 +1,77 @@
+body {
+    background: #110C11;
+    margin: 0;
+}
+
+.carousel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 2500px;
+    width: 100%;
+    overflow: hidden;
+    padding: 150px 0;
+}
+
+.carousel::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* You can use cssgradient.io to generate gradients */
+    background: radial-gradient(circle, rgba(17,12,17,0) 30%, rgba(17,12,17,1) 90%);
+}
+
+.carousel ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    transition: transform .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.carousel ul.even {
+    transform: translateX(-250px);
+}
+
+.carousel ul li.active {
+    z-index: 1;
+}
+
+.carousel ul li.active img {
+    transform: scale(1.2);
+}
+
+.carousel ul li.active img.zoom {
+    transform: scale(2);
+}
+
+.carousel ul li:not(.active) img {
+    pointer-events: none;
+}
+
+.carousel img {
+    width: 500px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.carousel .arrows {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 21px;
+}
+
+.carousel .arrows span {
+    cursor: pointer;
+}
+
